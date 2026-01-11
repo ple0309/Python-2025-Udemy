@@ -38,15 +38,16 @@ while game_is_on:
         or snake.head.xcor() < -280 \
         or snake.head.ycor() > 280 \
         or snake.head.ycor() < -280:
-        game_is_on = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        snake.reset()
 
 
     #Detect collision with tail.
     for segment in snake.segments[1:]: #Using slide to skip head segment
         if snake.head.distance(segment) < 10:
-            game_is_on = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            snake.reset()
+
     #if head collides with any segment in the tail:
         #trigger game_over
 
